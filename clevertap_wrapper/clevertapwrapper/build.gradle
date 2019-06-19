@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'co.nearbee:nearbeesdk:2.1.7'
+    implementation 'com.clevertap.android:clevertap-android-sdk:3.5.1'
+    implementation 'com.google.android.gms:play-services-gcm:16.0.0'
+    implementation 'com.google.android.gms:play-services-base:16.0.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+}
+
+apply from: 'https://raw.githubusercontent.com/k1slay/gradle-mvn-push/master/gradle-mvn-push.gradle'
